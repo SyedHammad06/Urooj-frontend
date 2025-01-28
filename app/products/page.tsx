@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import Navigation from '../ui/nav/nav';
 import styles from './page.module.css';
 import { BookType } from '../dashboard/books/page';
@@ -73,7 +73,7 @@ export default function Products() {
     };
 
     return (
-        <>
+        <Suspense>
             <Navigation id={id} />
             <div className={styles.products}>
                 <div className={styles.products_menu}>
@@ -214,6 +214,6 @@ export default function Products() {
                 </div>
             )}
             <Footer />
-        </>
+        </Suspense>
     );
 }

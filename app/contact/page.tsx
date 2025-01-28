@@ -5,7 +5,7 @@ import styles from './page.module.css';
 import Navigation from '../ui/nav/nav';
 import Footer from '../ui/footer/footer';
 import { useSearchParams } from 'next/navigation';
-import { useState, ChangeEvent, FormEvent } from 'react';
+import { useState, ChangeEvent, FormEvent, Suspense } from 'react';
 
 interface FormData {
     name: string;
@@ -69,7 +69,7 @@ export default function Contact() {
     };
 
     return (
-        <>
+        <Suspense>
             <Navigation id={id} />
             <div className={styles.contact}>
                 <div className={styles.contact_left}>
@@ -141,6 +141,6 @@ export default function Contact() {
                 </div>
             </div>
             <Footer />
-        </>
+        </Suspense>
     );
 }

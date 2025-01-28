@@ -2,7 +2,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './page.module.css';
-import { useRef, FormEvent } from 'react';
+import { useRef, FormEvent, Suspense } from 'react';
 import { useRouter } from 'next/navigation';
 
 export default function Login() {
@@ -54,48 +54,54 @@ export default function Login() {
     }
 
     return (
-        <div className={styles.login_container}>
-            <div className={styles.login}>
-                <Image
-                    src='/logo.png'
-                    width={136}
-                    height={80}
-                    className={styles.login_logo}
-                    style={{ width: 'auto', height: 'auto' }}
-                    alt='Logo'
-                />
-                <div className={styles.login_navigation}>
-                    <Link href='/'>
-                        <Image
-                            src='/back.svg'
-                            width={19}
-                            height={16}
-                            className={styles.login_logo}
-                            alt='Back Icon'
-                        />
-                        <p>Go Back</p>
-                    </Link>
+        <Suspense fallback={<p>Loading...</p>}>
+            <div className={styles.login_container}>
+                <div className={styles.login}>
+                    <Image
+                        src='/logo.png'
+                        width={136}
+                        height={80}
+                        className={styles.login_logo}
+                        style={{ width: 'auto', height: 'auto' }}
+                        alt='Logo'
+                    />
+                    <div className={styles.login_navigation}>
+                        <Link href='/'>
+                            <Image
+                                src='/back.svg'
+                                width={19}
+                                height={16}
+                                className={styles.login_logo}
+                                alt='Back Icon'
+                            />
+                            <p>Go Back</p>
+                        </Link>
+                    </div>
+                    <h1>Login</h1>
+                    <form className={styles.custom_form} onSubmit={onSubmit}>
+                        <div className={styles.form_field}>
+                            <label htmlFor='username'>Username</label>
+                            <input
+                                type='text'
+                                id='username'
+                                ref={usernameRef}
+                            />
+                        </div>
+                        <div className={styles.form_field}>
+                            <label htmlFor='password'>Password</label>
+                            <input
+                                type='password'
+                                id='password'
+                                ref={passwordRef}
+                                minLength={6}
+                            />
+                        </div>
+                        <button type='submit' className={styles.submit_button}>
+                            Login
+                        </button>
+                    </form>
                 </div>
-                <h1>Login</h1>
-                <form className={styles.custom_form} onSubmit={onSubmit}>
-                    <div className={styles.form_field}>
-                        <label htmlFor='username'>Username</label>
-                        <input type='text' id='username' ref={usernameRef} />
-                    </div>
-                    <div className={styles.form_field}>
-                        <label htmlFor='password'>Password</label>
-                        <input
-                            type='password'
-                            id='password'
-                            ref={passwordRef}
-                            minLength={6}
-                        />
-                    </div>
-                    <button type='submit' className={styles.submit_button}>
-                        Login
-                    </button>
-                </form>
             </div>
-        </div>
+        </Suspense>
     );
 }

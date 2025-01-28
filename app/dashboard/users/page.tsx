@@ -1,6 +1,6 @@
 'use client';
 
-import { FormEvent, useEffect, useRef, useState } from 'react';
+import { FormEvent, Suspense, useEffect, useRef, useState } from 'react';
 import styles from './page.module.css';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
@@ -103,83 +103,89 @@ export default function AddUsers() {
     };
 
     return (
-        <div className={styles.editBooks}>
-            <h2>Add Users</h2>
-            <form className={styles.custom_form} onSubmit={onSubmit}>
-                <div className={styles.form_field}>
-                    <label htmlFor='fname'>First Name</label>
-                    <input type='text' id='fname' ref={fNameRef} />
-                </div>
-                <div className={styles.form_field}>
-                    <label htmlFor='mName'>Middle Name</label>
-                    <input type='text' id='mName' ref={mNameRef} />
-                </div>
-                <div className={styles.form_field}>
-                    <label htmlFor='lName'>Last Name</label>
-                    <input type='text' id='lName' ref={lNameRef} />
-                </div>
-                <div className={styles.form_field}>
-                    <label htmlFor='personalEmail'>Email Address</label>
-                    <input
-                        type='text'
-                        id='personalEmail'
-                        ref={personalEmailRef}
-                    />
-                </div>
-                <div className={styles.form_field}>
-                    <label htmlFor='userAddress'>Address</label>
-                    <input type='text' id='userAddress' ref={userAddressRef} />
-                </div>
-                <div className={styles.form_field}>
-                    <label htmlFor='adhaar'>Adhaar</label>
-                    <input type='text' id='adhaar' ref={adhaarRef} />
-                </div>
-                <div className={styles.form_field}>
-                    <label htmlFor='city'>City</label>
-                    <input type='text' id='city' ref={cityRef} />
-                </div>
-                <div className={styles.form_field}>
-                    <label htmlFor='state'>State</label>
-                    <input type='text' id='state' ref={stateRef} />
-                </div>
-                <div className={styles.form_field}>
-                    <label htmlFor='country'>Country</label>
-                    <input type='text' id='country' ref={countryRef} />
-                </div>
-                <div className={styles.form_field}>
-                    <label htmlFor='isAdmin'>Admin or User</label>
-                    <select id='isAdmin' ref={isAdminRef}>
-                        <option value='1'>Admin</option>
-                        <option value='0' defaultChecked>
-                            User
-                        </option>
-                    </select>
-                </div>
-                <button type='submit' className={styles.submit_button}>
-                    Add User
-                </button>
-            </form>
-            <h2 style={{ margin: '2rem 0' }}>All Users</h2>
-            <div className={styles.editBooks_display}>
-                {users.map((ele, i) => (
-                    <div className={styles.editBooks_display_item} key={i}>
-                        <div className={styles.editBooks_display_item_flex}>
-                            <h3>{ele.userName}</h3>
-                        </div>
-                        <p>
-                            <b>Full Name:</b> {ele.fullName}
-                        </p>
-                        <p>
-                            <b>Personal Email:</b> {ele.personalEmail}
-                        </p>
-                        <div className={styles.editBooks_display_item_flex}>
-                            <span onClick={() => DeleteUsers(ele.userName)}>
-                                Delete
-                            </span>
-                        </div>
+        <Suspense fallback={<p>Loading...</p>}>
+            <div className={styles.editBooks}>
+                <h2>Add Users</h2>
+                <form className={styles.custom_form} onSubmit={onSubmit}>
+                    <div className={styles.form_field}>
+                        <label htmlFor='fname'>First Name</label>
+                        <input type='text' id='fname' ref={fNameRef} />
                     </div>
-                ))}
+                    <div className={styles.form_field}>
+                        <label htmlFor='mName'>Middle Name</label>
+                        <input type='text' id='mName' ref={mNameRef} />
+                    </div>
+                    <div className={styles.form_field}>
+                        <label htmlFor='lName'>Last Name</label>
+                        <input type='text' id='lName' ref={lNameRef} />
+                    </div>
+                    <div className={styles.form_field}>
+                        <label htmlFor='personalEmail'>Email Address</label>
+                        <input
+                            type='text'
+                            id='personalEmail'
+                            ref={personalEmailRef}
+                        />
+                    </div>
+                    <div className={styles.form_field}>
+                        <label htmlFor='userAddress'>Address</label>
+                        <input
+                            type='text'
+                            id='userAddress'
+                            ref={userAddressRef}
+                        />
+                    </div>
+                    <div className={styles.form_field}>
+                        <label htmlFor='adhaar'>Adhaar</label>
+                        <input type='text' id='adhaar' ref={adhaarRef} />
+                    </div>
+                    <div className={styles.form_field}>
+                        <label htmlFor='city'>City</label>
+                        <input type='text' id='city' ref={cityRef} />
+                    </div>
+                    <div className={styles.form_field}>
+                        <label htmlFor='state'>State</label>
+                        <input type='text' id='state' ref={stateRef} />
+                    </div>
+                    <div className={styles.form_field}>
+                        <label htmlFor='country'>Country</label>
+                        <input type='text' id='country' ref={countryRef} />
+                    </div>
+                    <div className={styles.form_field}>
+                        <label htmlFor='isAdmin'>Admin or User</label>
+                        <select id='isAdmin' ref={isAdminRef}>
+                            <option value='1'>Admin</option>
+                            <option value='0' defaultChecked>
+                                User
+                            </option>
+                        </select>
+                    </div>
+                    <button type='submit' className={styles.submit_button}>
+                        Add User
+                    </button>
+                </form>
+                <h2 style={{ margin: '2rem 0' }}>All Users</h2>
+                <div className={styles.editBooks_display}>
+                    {users.map((ele, i) => (
+                        <div className={styles.editBooks_display_item} key={i}>
+                            <div className={styles.editBooks_display_item_flex}>
+                                <h3>{ele.userName}</h3>
+                            </div>
+                            <p>
+                                <b>Full Name:</b> {ele.fullName}
+                            </p>
+                            <p>
+                                <b>Personal Email:</b> {ele.personalEmail}
+                            </p>
+                            <div className={styles.editBooks_display_item_flex}>
+                                <span onClick={() => DeleteUsers(ele.userName)}>
+                                    Delete
+                                </span>
+                            </div>
+                        </div>
+                    ))}
+                </div>
             </div>
-        </div>
+        </Suspense>
     );
 }

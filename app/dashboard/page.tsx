@@ -1,7 +1,7 @@
 'use client';
 
 import { useSearchParams, useRouter } from 'next/navigation';
-import { FormEvent, useEffect, useRef, useState } from 'react';
+import { FormEvent, Suspense, useEffect, useRef, useState } from 'react';
 import axios from 'axios';
 import styles from './page.module.css';
 import Link from 'next/link';
@@ -130,60 +130,67 @@ export default function Dashboard() {
     }
 
     return (
-        <div className={styles.dashboard}>
-            <div className={styles.dashboard_flex}>
-                <h2>User Details</h2>
-                <Link href='/login'>Sign Out</Link>
+        <Suspense fallback={<p>Loading...</p>}>
+            <div className={styles.dashboard}>
+                <div className={styles.dashboard_flex}>
+                    <h2>User Details</h2>
+                    <Link href='/login'>Sign Out</Link>
+                </div>
+                <div className={styles.dashboard_info_grid}>
+                    {Object.entries(userDetails).map(([key, value], i) => {
+                        if (key !== 'photo' && key !== 'isAdmin') {
+                            return (
+                                <div key={i}>
+                                    <h3>{key}</h3>
+                                    <p>
+                                        {JSON.stringify(value).replace(
+                                            /"/g,
+                                            ''
+                                        )}
+                                    </p>
+                                </div>
+                            );
+                        }
+                    })}
+                </div>
+                <h2>Change Password</h2>
+                <div className={styles.dashboard_input}>
+                    <form className={styles.custom_form} onSubmit={onSubmit}>
+                        <div className={styles.form_field}>
+                            <label htmlFor='originalPassword'>
+                                Original Password
+                            </label>
+                            <input
+                                type='text'
+                                id='originalPassword'
+                                ref={originalPasswordRef}
+                            />
+                        </div>
+                        <div className={styles.form_field}>
+                            <label htmlFor='newPassword'>New Password</label>
+                            <input
+                                type='password'
+                                id='newPassword'
+                                minLength={6}
+                                ref={newPasswordRef}
+                            />
+                        </div>
+                        <div className={styles.form_field}>
+                            <label htmlFor='confirmPassword'>
+                                Confirm Password
+                            </label>
+                            <input
+                                type='text'
+                                id='confirmPassword'
+                                ref={confirmPasswordRef}
+                            />
+                        </div>
+                        <button type='submit' className={styles.submit_button}>
+                            Update Password
+                        </button>
+                    </form>
+                </div>
             </div>
-            <div className={styles.dashboard_info_grid}>
-                {Object.entries(userDetails).map(([key, value], i) => {
-                    if (key !== 'photo' && key !== 'isAdmin') {
-                        return (
-                            <div key={i}>
-                                <h3>{key}</h3>
-                                <p>{JSON.stringify(value).replace(/"/g, '')}</p>
-                            </div>
-                        );
-                    }
-                })}
-            </div>
-            <h2>Change Password</h2>
-            <div className={styles.dashboard_input}>
-                <form className={styles.custom_form} onSubmit={onSubmit}>
-                    <div className={styles.form_field}>
-                        <label htmlFor='originalPassword'>
-                            Original Password
-                        </label>
-                        <input
-                            type='text'
-                            id='originalPassword'
-                            ref={originalPasswordRef}
-                        />
-                    </div>
-                    <div className={styles.form_field}>
-                        <label htmlFor='newPassword'>New Password</label>
-                        <input
-                            type='password'
-                            id='newPassword'
-                            minLength={6}
-                            ref={newPasswordRef}
-                        />
-                    </div>
-                    <div className={styles.form_field}>
-                        <label htmlFor='confirmPassword'>
-                            Confirm Password
-                        </label>
-                        <input
-                            type='text'
-                            id='confirmPassword'
-                            ref={confirmPasswordRef}
-                        />
-                    </div>
-                    <button type='submit' className={styles.submit_button}>
-                        Update Password
-                    </button>
-                </form>
-            </div>
-        </div>
+        </Suspense>
     );
 }

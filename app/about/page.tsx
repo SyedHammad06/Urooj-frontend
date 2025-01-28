@@ -5,13 +5,14 @@ import Footer from '../ui/footer/footer';
 import Navigation from '../ui/nav/nav';
 import styles from './page.module.css';
 import Image from 'next/image';
+import { Suspense } from 'react';
 
 export default function About() {
     const query = useSearchParams();
     const id = query.get('id');
 
     return (
-        <>
+        <Suspense>
             <Navigation id={id} />
             <div className={styles.about} id='#about'>
                 <div className={styles.about_left}>
@@ -55,6 +56,6 @@ export default function About() {
                 </div>
             </div>
             <Footer />
-        </>
+        </Suspense>
     );
 }

@@ -6,13 +6,14 @@ import Navigation from '../ui/nav/nav';
 import Image from 'next/image';
 import styles from './page.module.css';
 import { useSearchParams } from 'next/navigation';
+import { Suspense } from 'react';
 
 export default function Hauna() {
     const router = useSearchParams();
     const id = router.get('id');
 
     return (
-        <>
+        <Suspense>
             <Navigation id={id} />
             <main>
                 <HaunaHero />
@@ -30,6 +31,6 @@ export default function Hauna() {
                 />
                 <p>All rights reserved.</p>
             </footer>
-        </>
+        </Suspense>
     );
 }

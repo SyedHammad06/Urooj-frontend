@@ -1,0 +1,37 @@
+.sidenav {
+    width: min(15%, 20rem);
+    height: 100%;
+    background-color: var(--light);
+    text-align: center;
+}
+
+.sidenav a {
+    display: block;
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 1.5rem 0;
+    margin: 0.5rem 0;
+    color: var(--primary);
+    border-top: 2px solid white;
+}
+
+.sidenav a:first-of-type {
+    margin-top: 0;
+}
+
+.sidenav a:last-of-type {
+    border-bottom: 2px solid white;
+}
+
+@media (max-width: 768px) {
+    .sidenav a {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .sidenav a {
+        padding: 1rem 0.25rem;
+        font-size: 1.2rem;
+    }
+}

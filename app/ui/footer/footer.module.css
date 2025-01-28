@@ -1,0 +1,14 @@
+.footer {
+    width: 100%;
+    padding: 1.5rem 6rem;
+    display: grid;
+    place-items: center;
+    background-color: var(--light);
+}
+
+.footer p {
+    color: var(--primary);
+    font-weight: 700;
+    margin-top: 1rem;
+    font-size: 1.8rem;
+}

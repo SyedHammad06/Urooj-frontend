@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Roboto } from 'next/font/google';
 import './globals.css';
 import { Suspense } from 'react';
+import Head from 'next/head';
 
 const roboto = Roboto({
     subsets: ['latin'],
@@ -20,6 +21,12 @@ export default function RootLayout({
 }>) {
     return (
         <html lang='en'>
+            <Head>
+                <meta
+                    http-equiv='Content-Security-Policy'
+                    content='upgrade-insecure-requests'
+                ></meta>
+            </Head>
             <body className={`${roboto.className}`}>
                 <Suspense>{children}</Suspense>
             </body>

@@ -40,7 +40,7 @@ export default function Contact() {
         e.preventDefault();
         try {
             const response = await fetch(
-                'https://localhost:7102/api/Urooj/Subscription',
+                'http://147.93.102.224:5000/api/Urooj/Subscription',
                 {
                     method: 'POST',
                     headers: {

@@ -35,7 +35,7 @@ export default function Dashboard() {
             (async () => {
                 try {
                     const response = await axios.get(
-                        'https://localhost:7102/api/Urooj/Verify',
+                        'http://147.93.102.224:5000/api/Urooj/Verify',
                         {
                             headers: {
                                 Authorization: `Bearer ${id}`,
@@ -60,7 +60,7 @@ export default function Dashboard() {
     const getUserDetails = async (username: string) => {
         try {
             const response = await axios.get(
-                `https://localhost:7102/api/Urooj/UserDetails/${username}`
+                `http://147.93.102.224:5000/api/Urooj/UserDetails/${username}`
             );
             const renamedColumns: UserDetails = {
                 fName: 'Full_Name',
@@ -108,7 +108,7 @@ export default function Dashboard() {
                 console.log(body);
                 try {
                     const res = await fetch(
-                        'https://localhost:7102/api/Urooj/ChangePassword',
+                        'http://147.93.102.224:5000/api/Urooj/ChangePassword',
                         {
                             method: 'POST',
                             body: JSON.stringify(body),

@@ -3,7 +3,6 @@
 import { FormEvent, Suspense, useEffect, useRef, useState } from 'react';
 import styles from './page.module.css';
 import axios from 'axios';
-import { useRouter } from 'next/navigation';
 
 export interface AddUsersType {
     userName: string;
@@ -22,7 +21,6 @@ export interface AddUsersType {
 }
 
 export default function AddUsers() {
-    const router = useRouter();
     const fNameRef = useRef<HTMLInputElement>(null);
     const mNameRef = useRef<HTMLInputElement>(null);
     const lNameRef = useRef<HTMLInputElement>(null);
@@ -39,7 +37,7 @@ export default function AddUsers() {
         (async () => {
             try {
                 const res = await axios.get(
-                    'https://localhost:7102/api/Urooj/GetUsers'
+                    'http://147.93.102.224:5000/api/Urooj/GetUsers'
                 );
                 setUsers(res.data);
             } catch (error) {
@@ -68,13 +66,13 @@ export default function AddUsers() {
             console.log(body);
             try {
                 const res = await axios.put(
-                    'https://localhost:7102/api/Urooj/addAdmin',
+                    'http://147.93.102.224:5000/api/Urooj/addAdmin',
                     body
                 );
                 if (res.status === 200) {
                     alert('User Added Successfully');
                     const res = await axios.get(
-                        'https://localhost:7102/api/Urooj/GetUsers'
+                        'http://147.93.102.224:5000/api/Urooj/GetUsers'
                     );
                     setUsers(res.data);
                 } else {
@@ -88,7 +86,7 @@ export default function AddUsers() {
 
     const DeleteUsers = async (userName: string) => {
         const res = await axios.post(
-            `https://localhost:7102/api/Urooj/RemoveUser/${userName}`
+            `http://147.93.102.224:5000/api/Urooj/RemoveUser/${userName}`
         );
         if (res.status === 200) {
             const newStationary = users.filter(
@@ -96,7 +94,6 @@ export default function AddUsers() {
             );
             setUsers(newStationary);
             alert('User Deleted Successfully');
-            router.push('/');
         } else {
             alert('Something went wrong');
         }

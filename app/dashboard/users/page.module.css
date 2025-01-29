@@ -118,6 +118,10 @@
     border-radius: 0.5rem;
 }
 
+.editBooks_display_item_flex span {
+    cursor: pointer;
+}
+
 @media (max-width: 640px) {
     .form_field label {
         font-size: 1rem;

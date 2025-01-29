@@ -25,7 +25,7 @@ export default function Products() {
         const getBooks = async () => {
             try {
                 const response = await axios.get(
-                    'https://localhost:7102/api/Urooj/Books'
+                    'http://147.93.102.224:5000/api/Urooj/Books/GetAll'
                 );
                 setBooks(response.data);
             } catch (error) {
@@ -36,7 +36,7 @@ export default function Products() {
         const getStationary = async () => {
             try {
                 const response = await axios.get(
-                    'https://localhost:7102/api/Stationary/GetAll'
+                    'http://147.93.102.224:5000/api/Stationary/GetAll'
                 );
                 setStationary(response.data);
             } catch (error) {
@@ -191,6 +191,8 @@ export default function Products() {
                             alt={selectedStationary.title}
                             width={300}
                             height={300}
+                            priority
+                            unoptimized
                         />
                         <div>
                             <div>

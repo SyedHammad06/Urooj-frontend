@@ -21,7 +21,7 @@ export default function Login() {
 
             try {
                 const res = await fetch(
-                    'https://localhost:7102/api/Urooj/Login',
+                    'http://147.93.102.224:5000/api/Urooj/Login',
                     {
                         method: 'POST',
                         body: JSON.stringify(body),

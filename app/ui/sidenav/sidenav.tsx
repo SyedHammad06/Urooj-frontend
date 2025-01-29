@@ -19,7 +19,7 @@ export default function SideNav() {
             (async () => {
                 try {
                     const response = await axios.get(
-                        'https://localhost:7102/api/Urooj/Verify',
+                        'http://147.93.102.224:5000/api/Urooj/Verify',
                         {
                             headers: {
                                 Authorization: `Bearer ${id}`,

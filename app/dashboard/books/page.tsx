@@ -40,7 +40,7 @@ export default function AddBooks() {
             (async () => {
                 try {
                     const response = await axios.get(
-                        'https://localhost:7102/api/Urooj/Verify',
+                        'http://147.93.102.224:5000/api/Urooj/Verify',
                         {
                             headers: {
                                 Authorization: `Bearer ${id}`,
@@ -62,7 +62,7 @@ export default function AddBooks() {
         (async () => {
             try {
                 const res = await axios.get(
-                    'https://localhost:7102/api/Urooj/Books'
+                    'http://147.93.102.224:5000/api/Urooj/Books/GetAll'
                 );
                 setBooks(res.data);
             } catch (error) {
@@ -94,7 +94,7 @@ export default function AddBooks() {
             };
             try {
                 const res = await axios.post(
-                    'https://localhost:7102/api/Urooj/Books/AddBook',
+                    'http://147.93.102.224:5000/api/Urooj/Books/AddBook',
                     body,
                     {
                         headers: {
@@ -105,7 +105,7 @@ export default function AddBooks() {
                 );
                 if (res.status === 200) {
                     const updatedBooks = await axios.get(
-                        'https://localhost:7102/api/Urooj/Books'
+                        'http://147.93.102.224:5000/api/Urooj/Books/GetAll'
                     );
                     setBooks(updatedBooks.data);
                     alert('Book Added Successfully');
@@ -120,8 +120,9 @@ export default function AddBooks() {
 
     const DeleteBook = async (bookId: number) => {
         try {
+            console.log(id);
             const res = await axios.post(
-                `https://localhost:7102/api/Urooj/Books/Remove?bookId=${bookId}&ModifiedBy=${username}`,
+                `http://147.93.102.224:5000/api/Urooj/Books/Remove?bookId=${bookId}&ModifiedBy=${username}`,
                 {
                     headers: {
                         Authorization: `Bearer ${id}`,
@@ -150,7 +151,7 @@ export default function AddBooks() {
         if (selectedBook) {
             try {
                 const res = await axios.post(
-                    `https://localhost:7102/api/Urooj/Books/EditBook`,
+                    `http://147.93.102.224:5000/api/Urooj/Books/EditBook`,
                     selectedBook,
                     {
                         headers: {
@@ -161,7 +162,7 @@ export default function AddBooks() {
                 );
                 if (res.status === 200) {
                     const updatedBooks = await axios.get(
-                        'https://localhost:7102/api/Urooj/Books'
+                        'http://147.93.102.224:5000/api/Urooj/Books/GetAll'
                     );
                     setBooks(updatedBooks.data);
                     setIsEditModalOpen(false);

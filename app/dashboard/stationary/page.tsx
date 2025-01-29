@@ -32,7 +32,7 @@ export default function AddStationary() {
         (async () => {
             try {
                 const res = await axios.get(
-                    'https://localhost:7102/api/Stationary/GetAll'
+                    'http://147.93.102.224:5000/api/Stationary/GetAll'
                 );
                 setStationary(res.data);
             } catch (error) {
@@ -57,7 +57,7 @@ export default function AddStationary() {
             };
             try {
                 const res = await axios.post(
-                    'https://localhost:7102/api/Stationary/Add',
+                    'http://147.93.102.224:5000/api/Stationary/Add',
                     body,
                     {
                         headers: {
@@ -68,7 +68,7 @@ export default function AddStationary() {
                 );
                 if (res.status === 200) {
                     const updatedStationary = await axios.get(
-                        'https://localhost:7102/api/Stationary/GetAll'
+                        'http://147.93.102.224:5000/api/Stationary/GetAll'
                     );
                     setStationary(updatedStationary.data);
                     alert('Stationery Added Successfully');
@@ -84,7 +84,7 @@ export default function AddStationary() {
     const DeleteStationary = async (stationaryId: number) => {
         try {
             const res = await axios.post(
-                `https://localhost:7102/api/Stationary/Remove?stationaryId=${stationaryId}`,
+                `http://147.93.102.224:5000/api/Stationary/Remove?stationaryId=${stationaryId}`,
                 {
                     headers: {
                         Authorization: `Bearer ${id}`,
@@ -117,7 +117,7 @@ export default function AddStationary() {
         if (selectedStationary) {
             try {
                 const res = await axios.post(
-                    `https://localhost:7102/api/Stationary/Update`,
+                    `http://147.93.102.224:5000/api/Stationary/Update`,
                     selectedStationary,
                     {
                         headers: {
@@ -128,7 +128,7 @@ export default function AddStationary() {
                 );
                 if (res.status === 200) {
                     const updatedStationary = await axios.get(
-                        'https://localhost:7102/api/Stationary/GetAll'
+                        'http://147.93.102.224:5000/api/Stationary/GetAll'
                     );
                     setStationary(updatedStationary.data);
                     setIsEditModalOpen(false);

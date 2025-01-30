@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 'use client';
 
 import Image from 'next/image';
@@ -39,16 +40,13 @@ export default function Contact() {
     ): Promise<void> => {
         e.preventDefault();
         try {
-            const response = await fetch(
-                'http://147.93.102.224:5000/api/Urooj/Subscription',
-                {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(formData),
-                }
-            );
+            const response = await fetch('/api/proxy', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
 
             if (response.ok) {
                 alert('Form submitted successfully!');
@@ -62,7 +60,6 @@ export default function Contact() {
                 const errorData = await response.json();
                 alert(`Failed to submit: ${errorData.message}`);
             }
-            // eslint-disable-next-line @typescript-eslint/no-unused-vars
         } catch (error) {
             alert('An error occurred while submitting the form.');
         }

@@ -28,8 +28,6 @@ export default function SideNav() {
                         }
                     );
 
-                    console.log(response);
-
                     if (response.data.isAdmin === '1') {
                         setIsAdmin(true);
                     }

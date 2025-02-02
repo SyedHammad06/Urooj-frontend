@@ -101,9 +101,9 @@ export default function Contact() {
                             />
                         </div>
                         <div className={styles.form_field}>
-                            <label htmlFor='address'>Address</label>
+                            <label htmlFor='address'>Email Address</label>
                             <input
-                                type='text'
+                                type='email'
                                 id='address'
                                 value={formData.address}
                                 onChange={handleChange}

@@ -24,9 +24,7 @@ export default function Products() {
     useEffect(() => {
         const getBooks = async () => {
             try {
-                const response = await axios.get(
-                    'http://147.93.102.224:5000/api/Urooj/Books/GetAll'
-                );
+                const response = await axios.get('/api/Urooj/Books/GetAll');
                 setBooks(response.data);
             } catch (error) {
                 console.log(error);

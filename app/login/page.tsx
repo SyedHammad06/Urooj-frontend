@@ -20,16 +20,13 @@ export default function Login() {
             };
 
             try {
-                const res = await fetch(
-                    'http://147.93.102.224:5000/api/Urooj/Login',
-                    {
-                        method: 'POST',
-                        body: JSON.stringify(body),
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                    }
-                );
+                const res = await fetch('/api/auth/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(body),
+                });
 
                 if (!res.ok) {
                     const errorData = await res.json();

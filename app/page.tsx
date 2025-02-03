@@ -4,7 +4,7 @@ import About from './ui/about/about';
 import Hero from './ui/hero/hero';
 import Navigation from './ui/nav/nav';
 import styles from './page.module.css';
-import Contact from './contact/page';
+import Contact from './ui/contact/contact';
 import { useSearchParams } from 'next/navigation';
 import Footer from './ui/footer/footer';
 import { Suspense } from 'react';

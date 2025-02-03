@@ -53,9 +53,9 @@ export default function AddStationary() {
                 const response = await fetch('/api/Urooj/stationary');
                 const data = await response.json();
                 console.log(data);
-                // if (data) {
-                //     setStationary(data);
-                // }
+                if (data) {
+                    setStationary(data);
+                }
             } catch (error) {
                 console.log(error);
             }
@@ -75,17 +75,22 @@ export default function AddStationary() {
                 stationaryDescription: stationaryDescriptionRef.current.value,
                 stationaryPrice: stationaryPriceRef.current.value,
                 stationaryUrl: stationaryImageRef.current.value,
+                modifiedBy: userName || '',
             };
             try {
-                const res = await axios.post('/api/stationary', body, {
-                    headers: {
-                        Authorization: `Bearer ${id}`,
-                        'Content-Type': 'application/json',
-                    },
-                });
+                const res = await axios.post(
+                    '/api/Urooj/stationary/add',
+                    body,
+                    {
+                        headers: {
+                            Authorization: `Bearer ${id}`,
+                            'Content-Type': 'application/json',
+                        },
+                    }
+                );
                 if (res.status === 200) {
                     const updatedStationary = await axios.get(
-                        'http://147.93.102.224:5000/api/Stationary/GetAll'
+                        '/api/Urooj/stationary'
                     );
                     setStationary(updatedStationary.data);
                     alert('Stationery Added Successfully');
@@ -100,8 +105,8 @@ export default function AddStationary() {
 
     const DeleteStationary = async (stationaryId: number) => {
         try {
-            const res = await axios.post(
-                `http://147.93.102.224:5000/api/Stationary/Remove?stationaryId=${stationaryId}`,
+            const res = await axios.delete(
+                `/api/Urooj/stationary?stationaryId=${stationaryId}&ModifiedBy=${userName}`,
                 {
                     headers: {
                         Authorization: `Bearer ${id}`,
@@ -133,8 +138,8 @@ export default function AddStationary() {
         event.preventDefault();
         if (selectedStationary) {
             try {
-                const res = await axios.post(
-                    `http://147.93.102.224:5000/api/Stationary/Update`,
+                const res = await axios.put(
+                    `/api/Urooj/stationary`,
                     selectedStationary,
                     {
                         headers: {
@@ -145,7 +150,7 @@ export default function AddStationary() {
                 );
                 if (res.status === 200) {
                     const updatedStationary = await axios.get(
-                        'http://147.93.102.224:5000/api/Stationary/GetAll'
+                        '/api/Urooj/stationary'
                     );
                     setStationary(updatedStationary.data);
                     setIsEditModalOpen(false);

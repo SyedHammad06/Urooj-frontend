@@ -48,7 +48,9 @@ export async function POST(request: NextRequest) {
             );
         }
 
-        const response = await axios.post(`${BASE_URL}/AddStationary`, body, {
+        console.log(authHeader);
+
+        const response = await axios.post(`${BASE_URL}/add`, body, {
             headers: {
                 Authorization: authHeader,
                 'Content-Type': 'application/json',
@@ -78,7 +80,7 @@ export async function PUT(request: NextRequest) {
             );
         }
 
-        const response = await axios.post(`${BASE_URL}/EditStationary`, body, {
+        const response = await axios.post(`${BASE_URL}/Update`, body, {
             headers: {
                 Authorization: authHeader,
                 'Content-Type': 'application/json',
@@ -101,6 +103,7 @@ export async function DELETE(request: NextRequest) {
         const { searchParams } = new URL(request.url);
         const stationaryId = searchParams.get('stationaryId');
         const authHeader = request.headers.get('authorization');
+        const ModifiedBy = searchParams.get('ModifiedBy');
 
         if (!stationaryId) {
             return NextResponse.json(
@@ -117,7 +120,7 @@ export async function DELETE(request: NextRequest) {
         }
 
         const response = await axios.post(
-            `${BASE_URL}/Remove?stationaryId=${stationaryId}`,
+            `${BASE_URL}/Remove/${stationaryId}?ModifiedBy=${ModifiedBy}`,
             {},
             {
                 headers: {

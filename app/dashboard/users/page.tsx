@@ -36,9 +36,7 @@ export default function AddUsers() {
     useEffect(() => {
         (async () => {
             try {
-                const res = await axios.get(
-                    'http://147.93.102.224:5000/api/Urooj/GetUsers'
-                );
+                const res = await axios.get('/api/Urooj/users');
                 setUsers(res.data);
             } catch (error) {
                 console.log(error);
@@ -66,14 +64,12 @@ export default function AddUsers() {
             console.log(body);
             try {
                 const res = await axios.put(
-                    'http://147.93.102.224:5000/api/Urooj/addAdmin',
+                    `/api/Urooj/users?isAdmin=${isAdminRef.current?.value}`,
                     body
                 );
                 if (res.status === 200) {
                     alert('User Added Successfully');
-                    const res = await axios.get(
-                        'http://147.93.102.224:5000/api/Urooj/GetUsers'
-                    );
+                    const res = await axios.get('/api/Urooj/users');
                     setUsers(res.data);
                 } else {
                     alert('Something went wrong');
@@ -85,9 +81,7 @@ export default function AddUsers() {
     }
 
     const DeleteUsers = async (userName: string) => {
-        const res = await axios.post(
-            `http://147.93.102.224:5000/api/Urooj/RemoveUser/${userName}`
-        );
+        const res = await axios.delete(`/api/Urooj/users?userName=${userName}`);
         if (res.status === 200) {
             const newStationary = users.filter(
                 (items) => items.userName !== userName

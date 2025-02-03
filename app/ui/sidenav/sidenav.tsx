@@ -3,7 +3,6 @@ import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import axios from 'axios';
 
 export default function SideNav() {
     const query = useSearchParams();
@@ -18,17 +17,10 @@ export default function SideNav() {
         if (id) {
             (async () => {
                 try {
-                    const response = await axios.get(
-                        'http://147.93.102.224:5000/api/Urooj/Verify',
-                        {
-                            headers: {
-                                Authorization: `Bearer ${id}`,
-                                'Content-Type': 'application/json',
-                            },
-                        }
-                    );
+                    const response = await fetch(`/api/Urooj/Verify?id=${id}`);
+                    const data = await response.json();
 
-                    if (response.data.isAdmin === '1') {
+                    if (data.isAdmin === '1') {
                         setIsAdmin(true);
                     }
                 } catch (error) {

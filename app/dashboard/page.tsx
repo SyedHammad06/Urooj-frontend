@@ -34,20 +34,12 @@ export default function Dashboard() {
         if (id) {
             (async () => {
                 try {
-                    const response = await axios.get(
-                        'http://147.93.102.224:5000/api/Urooj/Verify',
-                        {
-                            headers: {
-                                Authorization: `Bearer ${id}`,
-                                'Content-Type': 'application/json',
-                            },
-                        }
-                    );
-
-                    if (response.data.userName) {
-                        setUserName(response.data.userName);
-                        getUserDetails(response.data.userName);
+                    const response = await fetch(`/api/Urooj/Verify?id=${id}`);
+                    const data = await response.json();
+                    if (data.userName) {
+                        setUserName(data.userName);
                     }
+                    getUserDetails(data.userName);
                 } catch (error) {
                     console.log(error);
                 }
@@ -59,8 +51,8 @@ export default function Dashboard() {
 
     const getUserDetails = async (username: string) => {
         try {
-            const response = await axios.get(
-                `http://147.93.102.224:5000/api/Urooj/UserDetails/${username}`
+            const response = await axios.post(
+                `/api/users?userName=${username}`
             );
             const renamedColumns: UserDetails = {
                 fName: 'Full_Name',
@@ -107,16 +99,13 @@ export default function Dashboard() {
                 };
                 console.log(body);
                 try {
-                    const res = await fetch(
-                        'http://147.93.102.224:5000/api/Urooj/ChangePassword',
-                        {
-                            method: 'POST',
-                            body: JSON.stringify(body),
-                            headers: {
-                                'Content-Type': 'application/json',
-                            },
-                        }
-                    );
+                    const res = await fetch('/api/users', {
+                        method: 'PUT',
+                        body: JSON.stringify(body),
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                    });
                     if (res.ok) {
                         alert('Password Changed Successfully');
                     } else {

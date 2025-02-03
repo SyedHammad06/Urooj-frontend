@@ -33,9 +33,7 @@ export default function Products() {
 
         const getStationary = async () => {
             try {
-                const response = await axios.get(
-                    'http://147.93.102.224:5000/api/Stationary/GetAll'
-                );
+                const response = await axios.get('/api/Urooj/stationary');
                 setStationary(response.data);
             } catch (error) {
                 console.log(error);

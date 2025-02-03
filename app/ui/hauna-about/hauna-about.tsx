@@ -173,7 +173,7 @@ export default function About() {
                 <div className={styles.features_right}>
                     <div className={styles.features_right_content}>
                         <Image
-                            src='/vector.svg'
+                            src='/vector.png'
                             width={30}
                             height={30}
                             alt='feature 1 icon'
@@ -183,7 +183,7 @@ export default function About() {
                     </div>
                     <div className={styles.features_right_content}>
                         <Image
-                            src='/vector-1.svg'
+                            src='/vector-1.png'
                             width={30}
                             height={30}
                             alt='feature 2 icon'
@@ -193,7 +193,7 @@ export default function About() {
                     </div>
                     <div className={styles.features_right_content}>
                         <Image
-                            src='/vector-4.svg'
+                            src='/vector-4.png'
                             width={30}
                             height={30}
                             alt='feature 3 icon'
@@ -203,7 +203,7 @@ export default function About() {
                     </div>
                     <div className={styles.features_right_content}>
                         <Image
-                            src='/vector-5.svg'
+                            src='/vector-5.png'
                             width={30}
                             height={30}
                             alt='feature 4 icon'
@@ -214,7 +214,7 @@ export default function About() {
                     </div>
                     <div className={styles.features_right_content}>
                         <Image
-                            src='/vector-6.svg'
+                            src='/vector-6.png'
                             width={30}
                             height={30}
                             alt='feature 5 icon'
@@ -225,7 +225,7 @@ export default function About() {
                     </div>
                     <div className={styles.features_right_content}>
                         <Image
-                            src='/vector-7.svg'
+                            src='/vector-7.png'
                             width={30}
                             height={30}
                             alt='feature 6 icon'

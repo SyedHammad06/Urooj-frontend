@@ -19,7 +19,7 @@ export default function About() {
                 <div className={styles.features_right}>
                     <div className={styles.features_right_content}>
                         <Image
-                            src='/vector.svg'
+                            src='/vector.png'
                             width={30}
                             height={30}
                             alt='feature 1 icon'
@@ -32,7 +32,7 @@ export default function About() {
                     </div>
                     <div className={styles.features_right_content}>
                         <Image
-                            src='/vector-1.svg'
+                            src='/vector-1.png'
                             width={30}
                             height={30}
                             alt='feature 2 icon'
@@ -45,7 +45,7 @@ export default function About() {
                     </div>
                     <div className={styles.features_right_content}>
                         <Image
-                            src='/vector-2.svg'
+                            src='/vector-2.png'
                             width={30}
                             height={30}
                             alt='feature 3 icon'
@@ -58,7 +58,7 @@ export default function About() {
                     </div>
                     <div className={styles.features_right_content}>
                         <Image
-                            src='/vector-3.svg'
+                            src='/vector-3.png'
                             width={30}
                             height={30}
                             alt='feature 4 icon'

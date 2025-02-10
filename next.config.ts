@@ -8,6 +8,7 @@ const nextConfig: NextConfig = {
             'gwyjtnsbbf.ufs.sh',
             'shorturl.at',
         ],
+        unoptimized: true,
     },
 };
 

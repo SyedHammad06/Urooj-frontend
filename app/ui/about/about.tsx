@@ -23,6 +23,8 @@ export default function About() {
                             width={30}
                             height={30}
                             alt='feature 1 icon'
+                            style={{ width: 'auto', height: 'auto' }}
+                            sizes='(max-width: 640px) 50vw, (max-width: 768px) 40vw, (max-width: 1200px) 500px'
                             className={styles.features_right_icon}
                         />
                         <p>
@@ -36,6 +38,8 @@ export default function About() {
                             width={30}
                             height={30}
                             alt='feature 2 icon'
+                            style={{ width: 'auto', height: 'auto' }}
+                            sizes='(max-width: 640px) 50vw, (max-width: 768px) 40vw, (max-width: 1200px) 500px'
                             className={styles.features_right_icon}
                         />
                         <p>
@@ -49,6 +53,8 @@ export default function About() {
                             width={30}
                             height={30}
                             alt='feature 3 icon'
+                            style={{ width: 'auto', height: 'auto' }}
+                            sizes='(max-width: 640px) 50vw, (max-width: 768px) 40vw, (max-width: 1200px) 500px'
                             className={styles.features_right_icon}
                         />
                         <p>

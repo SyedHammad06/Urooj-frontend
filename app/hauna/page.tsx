@@ -1,7 +1,7 @@
 'use client';
 
 import HaunaAbout from '../ui/hauna-about/hauna-about';
-import HaunaHero from '../ui/hauna-hero/hauna-hero';
+import HaunaHero from '../ui/hauna-about/hauna-hero/hauna-hero';
 import Navigation from '../ui/nav/nav';
 import Image from 'next/image';
 import styles from './page.module.css';

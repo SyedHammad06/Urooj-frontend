@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import styles from './about.module.css';
+import img1 from '../../../public/Vector.png';
 
 export default function About() {
     return (
@@ -19,12 +20,10 @@ export default function About() {
                 <div className={styles.features_right}>
                     <div className={styles.features_right_content}>
                         <Image
-                            src='/vector.png'
+                            src={img1}
                             width={30}
                             height={30}
                             alt='feature 1 icon'
-                            style={{ width: 'auto', height: 'auto' }}
-                            sizes='(max-width: 640px) 50vw, (max-width: 768px) 40vw, (max-width: 1200px) 500px'
                             className={styles.features_right_icon}
                         />
                         <p>
@@ -38,8 +37,6 @@ export default function About() {
                             width={30}
                             height={30}
                             alt='feature 2 icon'
-                            style={{ width: 'auto', height: 'auto' }}
-                            sizes='(max-width: 640px) 50vw, (max-width: 768px) 40vw, (max-width: 1200px) 500px'
                             className={styles.features_right_icon}
                         />
                         <p>
@@ -53,8 +50,6 @@ export default function About() {
                             width={30}
                             height={30}
                             alt='feature 3 icon'
-                            style={{ width: 'auto', height: 'auto' }}
-                            sizes='(max-width: 640px) 50vw, (max-width: 768px) 40vw, (max-width: 1200px) 500px'
                             className={styles.features_right_icon}
                         />
                         <p>

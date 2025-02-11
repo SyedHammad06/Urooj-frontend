@@ -1,6 +1,9 @@
 import Image from 'next/image';
 import styles from './about.module.css';
 import img1 from '../../../public/Vector.png';
+import img2 from '../../../public/Vector-1.png';
+import img3 from '../../../public/Vector-2.png';
+import img4 from '../../../public/Vector-3.png';
 
 export default function About() {
     return (
@@ -33,7 +36,7 @@ export default function About() {
                     </div>
                     <div className={styles.features_right_content}>
                         <Image
-                            src='/vector-1.png'
+                            src={img2}
                             width={30}
                             height={30}
                             alt='feature 2 icon'
@@ -46,7 +49,7 @@ export default function About() {
                     </div>
                     <div className={styles.features_right_content}>
                         <Image
-                            src='/vector-2.png'
+                            src={img3}
                             width={30}
                             height={30}
                             alt='feature 3 icon'
@@ -59,7 +62,7 @@ export default function About() {
                     </div>
                     <div className={styles.features_right_content}>
                         <Image
-                            src='/vector-3.png'
+                            src={img4}
                             width={30}
                             height={30}
                             alt='feature 4 icon'

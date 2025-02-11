@@ -1,5 +1,11 @@
 import Image from 'next/image';
 import styles from './hauna-about.module.css';
+import img1 from '../../../public/Vector.png';
+import img2 from '../../../public/Vector-1.png';
+import img3 from '../../../public/Vector-4.png';
+import img4 from '../../../public/Vector-5.png';
+import img5 from '../../../public/Vector-6.png';
+import img6 from '../../../public/Vector-7.png';
 
 export default function About() {
     return (
@@ -173,7 +179,7 @@ export default function About() {
                 <div className={styles.features_right}>
                     <div className={styles.features_right_content}>
                         <Image
-                            src='/vector.png'
+                            src={img1}
                             width={30}
                             height={30}
                             alt='feature 1 icon'
@@ -183,7 +189,7 @@ export default function About() {
                     </div>
                     <div className={styles.features_right_content}>
                         <Image
-                            src='/vector-1.png'
+                            src={img2}
                             width={30}
                             height={30}
                             alt='feature 2 icon'
@@ -193,7 +199,7 @@ export default function About() {
                     </div>
                     <div className={styles.features_right_content}>
                         <Image
-                            src='/vector-4.png'
+                            src={img3}
                             width={30}
                             height={30}
                             alt='feature 3 icon'
@@ -203,7 +209,7 @@ export default function About() {
                     </div>
                     <div className={styles.features_right_content}>
                         <Image
-                            src='/vector-5.png'
+                            src={img4}
                             width={30}
                             height={30}
                             alt='feature 4 icon'
@@ -214,7 +220,7 @@ export default function About() {
                     </div>
                     <div className={styles.features_right_content}>
                         <Image
-                            src='/vector-6.png'
+                            src={img5}
                             width={30}
                             height={30}
                             alt='feature 5 icon'
@@ -225,7 +231,7 @@ export default function About() {
                     </div>
                     <div className={styles.features_right_content}>
                         <Image
-                            src='/vector-7.png'
+                            src={img6}
                             width={30}
                             height={30}
                             alt='feature 6 icon'

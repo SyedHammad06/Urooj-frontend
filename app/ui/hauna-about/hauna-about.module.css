@@ -22,19 +22,19 @@
 }
 
 .about_left h2 {
-    font-size: 3rem;
+    font-size: 3.2rem;
     margin-bottom: 1.5rem;
     color: var(--primary);
 }
 
 .about_left h3 {
-    font-size: 2.4rem;
+    font-size: 2.6rem;
     margin: 1rem 0;
     color: var(--primary);
 }
 
 .about_left p {
-    font-size: 1.6rem;
+    font-size: 1.7rem;
     font-weight: 500;
 }
 
@@ -74,7 +74,7 @@
 }
 
 .features_right_content p {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     margin-top: 2rem;
     font-weight: 500;
 }
@@ -126,7 +126,7 @@
     padding: 1rem;
     vertical-align: center;
     line-height: 1.4;
-    font-size: 1.6rem;
+    font-size: 1.7rem;
     font-weight: 500;
 }
 

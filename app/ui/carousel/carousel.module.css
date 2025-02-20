@@ -1,0 +1,55 @@
+.carouselOutside {
+    padding: 0 6rem;
+}
+
+.carouselHeading {
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.carouselContainer {
+    width: 90%;
+    margin: 0 auto 3rem auto;
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16/9;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.carouselTrack {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+    height: 100%;
+}
+
+.carouselSlide {
+    flex: 0 0 100%;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.carouselImage {
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .carouselContainer {
+        aspect-ratio: 16/9;
+    }
+}
+
+@media (max-width: 640px) {
+    .carouselContainer {
+        width: 100%;
+    }
+
+    .carouselHeading {
+        margin-bottom: 3rem;
+    }
+}

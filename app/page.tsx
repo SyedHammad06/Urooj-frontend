@@ -4,10 +4,10 @@ import About from './ui/about/about';
 import Hero from './ui/hero/hero';
 import Navigation from './ui/nav/nav';
 import styles from './page.module.css';
-import Contact from './ui/contact/contact';
 import { useSearchParams } from 'next/navigation';
 import Footer from './ui/footer/footer';
 import { Suspense } from 'react';
+import Carousel from './ui/carousel/carousel';
 
 export default function Home() {
     const query = useSearchParams();
@@ -34,7 +34,7 @@ export default function Home() {
                             <p>Curriculum Framework</p>
                         </div>
                     </div>
-                    <Contact />
+                    <Carousel />
                 </main>
                 <Footer />
             </Suspense>

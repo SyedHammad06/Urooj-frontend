@@ -19,7 +19,7 @@ export default function Home() {
                 <Navigation id={id} />
                 <main>
                     <Hero />
-                    <About />
+                    <Carousel />
                     <div className={styles.stats}>
                         <div>
                             <h3>03</h3>
@@ -34,8 +34,8 @@ export default function Home() {
                             <p>Curriculum Framework</p>
                         </div>
                     </div>
-                    <Carousel />
                 </main>
+                <About />
                 <Footer />
             </Suspense>
         </>

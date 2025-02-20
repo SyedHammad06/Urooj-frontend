@@ -199,7 +199,7 @@
     }
 
     .header {
-        font-size: 1.4rem;
+        font-size: 1.6rem;
     }
 
     .table td {
@@ -260,17 +260,17 @@
     }
 
     .about_left h2 {
-        font-size: 2rem;
+        font-size: 2.2rem;
         margin-bottom: 1.2rem;
     }
 
     .about_left h3 {
-        font-size: 1.6rem;
+        font-size: 1.8rem;
         margin: 0.8rem 0;
     }
 
     .about_left p {
-        font-size: 1.2rem;
+        font-size: 1.4rem;
         font-weight: 400;
     }
 }

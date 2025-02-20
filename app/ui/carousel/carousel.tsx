@@ -20,7 +20,7 @@ export default function Carousel() {
 
     return (
         <div className={styles.carouselOutside}>
-            <h2 className={styles.carouselHeading}>Slideshow</h2>
+            {/* <h2 className={styles.carouselHeading}>Slideshow</h2> */}
             <div className={styles.carouselContainer}>
                 <div
                     className={styles.carouselTrack}

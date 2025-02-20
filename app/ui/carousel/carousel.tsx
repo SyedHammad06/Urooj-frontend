@@ -13,7 +13,7 @@ export default function Carousel() {
             setCurrentIndex((prevIndex) =>
                 prevIndex === images.length - 1 ? 0 : prevIndex + 1
             );
-        }, 5000); // Change image every 5 seconds
+        }, 3000); // Change image every 5 seconds
 
         return () => clearInterval(interval);
     }, []);

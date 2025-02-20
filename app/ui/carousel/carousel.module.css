@@ -12,7 +12,7 @@
 
 .carouselContainer {
     width: 90%;
-    margin: 0 auto 3rem auto;
+    margin: 3rem auto 3rem auto;
     position: relative;
     overflow: hidden;
     aspect-ratio: 16/9;
